@@ -1,0 +1,59 @@
+unit unCadastroPadrao;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, ADODB, DBCtrls, StdCtrls, Buttons, ExtCtrls;
+
+type
+  TOperacao= (toIncluir, toEditar, toExcluir);
+  TfrmCadastroPadrao = class(TForm)
+    pnlBusca: TPanel;
+    pnlDados: TPanel;
+    pnlBotoes: TPanel;
+    bbtnOK: TBitBtn;
+    bbtnNovo: TBitBtn;
+    bbtnExcluir: TBitBtn;
+    bbtnCancelar: TBitBtn;
+    bbtnLocalizar: TBitBtn;
+    bbtnFechar: TBitBtn;
+    dblcChave: TDBLookupComboBox;
+    atDados: TADOTable;
+    dsDados: TDataSource;
+    procedure bbtnFecharClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    FOperacao: TOperacao;
+    procedure SetOperacao(const Value: TOperacao);
+    { Private declarations }
+  public
+    { Public declarations }
+    property Operacao: TOperacao read FOperacao write SetOperacao;
+  end;
+
+var
+  frmCadastroPadrao: TfrmCadastroPadrao;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmCadastroPadrao.bbtnFecharClick(Sender: TObject);
+begin
+atDados.Close;
+Close;
+end;
+
+procedure TfrmCadastroPadrao.FormShow(Sender: TObject);
+begin
+atDados.Open;
+dblcChave.SetFocus;
+end;
+
+procedure TfrmCadastroPadrao.SetOperacao(const Value: TOperacao);
+begin
+  FOperacao := Value;
+end;
+
+end.

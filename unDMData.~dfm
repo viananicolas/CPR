@@ -1,0 +1,12 @@
+object dmData: TdmData
+  OldCreateOrder = False
+  Left = 736
+  Top = 294
+  Height = 127
+  Width = 215
+  object acConexao: TADOConnection
+    LoginPrompt = False
+    Left = 80
+    Top = 32
+  end
+end

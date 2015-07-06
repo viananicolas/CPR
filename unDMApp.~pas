@@ -1,0 +1,38 @@
+unit unDMApp;
+
+interface
+
+uses
+  SysUtils, Classes, ActnList, ImgList, Controls, XPStyleActnCtrls, ActnMan;
+
+type
+  TdmApp = class(TDataModule)
+    amPrincipal: TActionManager;
+    imgFiguras: TImageList;
+    Sair: TAction;
+    CadastrarClientes: TAction;
+    CadastrarFornecedores: TAction;
+    CadastrarBancos: TAction;
+    CadastrarCartorios: TAction;
+    GerenciarPlanoContas: TAction;
+    LancamentosPlanoContas: TAction;
+    CadastrarDespesas: TAction;
+    CadastrarPagamentos: TAction;
+    CadastrarRecebimentos: TAction;
+    CadastrarContasCartorios: TAction;
+    CadastrarCheques: TAction;
+    Sobre: TAction;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dmApp: TdmApp;
+
+implementation
+
+{$R *.dfm}
+
+end.

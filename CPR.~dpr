@@ -1,0 +1,19 @@
+program CPR;
+
+uses
+  Forms,
+  unPrincipal in 'unPrincipal.pas' {frmPrincipal},
+  unDMApp in 'unDMApp.pas' {dmApp: TDataModule},
+  unDMData in 'unDMData.pas' {dmData: TDataModule},
+  unCadastroPadrao in 'unCadastroPadrao.pas' {frmCadastroPadrao};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TdmData, dmData);
+  Application.CreateForm(TdmApp, dmApp);
+  Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.CreateForm(TfrmCadastroPadrao, frmCadastroPadrao);
+  Application.Run;
+end.
